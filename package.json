@@ -17,6 +17,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "husky" : {
+    "hooks" : {
+      "pre-commit" : "test"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -34,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.4"
   }
 }
