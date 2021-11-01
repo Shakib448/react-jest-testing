@@ -23,9 +23,19 @@ describe("testing color button", () => {
 
     expect(colorButton.textContent).toBe("Change to red");
   });
-
-  test("initial conditions", () => {
+  it("initial conditions", () => {
     expect(colorButton).toBeEnabled();
     expect(checkBox).not.toBeChecked();
+  });
+  it("checkbox disable button on first click and enables on second click", () => {
+    render(<App />);
+    const check = screen.getByRole("checkbox");
+    const button = screen.getByRole("button");
+
+    fireEvent.click(check);
+    expect(button).toBeDisabled();
+
+    fireEvent.click(check);
+    expect(button).toBeEnabled();
   });
 });
