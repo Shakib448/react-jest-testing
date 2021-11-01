@@ -15,12 +15,19 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "husky-install": "husky install"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "react-scripts test --bail --watchAll=false --findRelatedTests --passWithNoTests",
+      "prettier src -check"
     ]
   },
   "browserslist": {
@@ -34,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.4.1"
   }
 }
