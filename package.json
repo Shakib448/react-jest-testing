@@ -18,8 +18,9 @@
     "eject": "react-scripts eject"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "eslint --fix",
+    "**/*.js": [
+      "eslint src/ --fix",
+      "jest --bail --findRelatedTests",
       "git add"
     ]
   },
