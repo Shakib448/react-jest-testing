@@ -26,8 +26,7 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "react-scripts test --bail --watchAll=false --findRelatedTests --passWithNoTests",
-      "prettier src -check"
+      "react-scripts test --bail --watchAll=false --findRelatedTests --passWithNoTests"
     ]
   },
   "browserslist": {
@@ -44,7 +43,6 @@
   },
   "devDependencies": {
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
-    "prettier": "^2.4.1"
+    "lint-staged": "^11.2.6"
   }
 }
