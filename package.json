@@ -17,17 +17,16 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint src/ --fix",
-      "jest --bail --findRelatedTests",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint src/ --fix",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6"
   }
