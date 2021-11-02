@@ -19,7 +19,7 @@ describe("testing color button", () => {
       backgroundColor: "MidnightBlue",
     });
 
-    expect(colorButton.textContent).toBe("Change to Medium Violet Red");
+    expect(colorButton).toHaveTextContent("Change to Medium Violet Red");
   });
   it("initial conditions", () => {
     render(<App />);
