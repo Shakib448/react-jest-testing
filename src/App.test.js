@@ -2,15 +2,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
 describe("testing color button", () => {
-  let colorButton;
-  let checkBox;
-  beforeAll(() => {
-    render(<App />);
-    colorButton = screen.getByRole("button", { name: /change to blue/i });
-    checkBox = screen.getByRole("checkbox");
-  });
-
   it("button has correct initial color", () => {
+    render(<App />);
+    const colorButton = screen.getByRole("button", { name: /change to blue/i });
+
     expect(colorButton).toHaveStyle({
       backgroundColor: "red",
     });
@@ -24,6 +19,10 @@ describe("testing color button", () => {
     expect(colorButton.textContent).toBe("Change to red");
   });
   it("initial conditions", () => {
+    render(<App />);
+    const colorButton = screen.getByRole("button", { name: /change to blue/i });
+    const checkBox = screen.getByRole("checkbox");
+
     expect(colorButton).toBeEnabled();
     expect(checkBox).not.toBeChecked();
   });
