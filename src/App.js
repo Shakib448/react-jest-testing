@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function replaceCamelWithSpaces(colorName) {
   return colorName.replace(/\B([A-Z])\B/g, " $1");
