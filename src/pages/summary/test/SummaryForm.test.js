@@ -35,5 +35,12 @@ describe("Summary Form testing", () => {
     expect(confirmButton).toBeDisabled();
   });
 
-  it("popover responds to hover", () => {});
+  it("popover responds to hover", () => {
+    render(<SummaryForm />);
+
+    const nullPopOver = screen.queryByText(
+      /no ice cream will actually be delivered/i
+    );
+    expect(nullPopOver).not.toBeInTheDocument();
+  });
 });
