@@ -1,28 +1,12 @@
+import React from "react";
 import "./App.css";
-import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import SummaryForm from "../src/pages/summary/SummaryForm";
 
 function App() {
-  const [color, setColor] = useState("red");
-  const [disabled, setDisabled] = useState(false);
-
-  const newButtonColor = color === "red" ? "blue" : "red";
   return (
     <div className="App">
-      <button
-        style={{ backgroundColor: color }}
-        onClick={() => setColor(newButtonColor)}
-        disabled={disabled}
-      >
-        Change to {newButtonColor}
-      </button>
-      <br />
-      <input
-        type="checkbox"
-        id="enabled-button-checkbox"
-        defaultChecked={disabled}
-        aria-checked={disabled}
-        onChange={(e) => setDisabled(e.target.checked)}
-      />
+      <SummaryForm />
     </div>
   );
 }
