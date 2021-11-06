@@ -1,5 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ColorButton from "../ColorButton";
+import userEvent from "@testing-library/user-event";
+
 import { replaceCamelWithSpaces } from "../ColorButton";
 
 describe("testing color button", () => {
@@ -13,7 +15,7 @@ describe("testing color button", () => {
       backgroundColor: "MediumVioletRed",
     });
 
-    fireEvent.click(colorButton);
+    userEvent.click(colorButton);
 
     expect(colorButton).toHaveStyle({
       backgroundColor: "MidnightBlue",
@@ -38,10 +40,10 @@ describe("testing color button", () => {
       name: /change to midnight blue/i,
     });
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toBeDisabled();
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toBeEnabled();
   });
   it("disable button has gray background an reverts to red", () => {
@@ -51,10 +53,10 @@ describe("testing color button", () => {
       name: /change to midnight blue/i,
     });
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toHaveStyle("backgroundColor : gray");
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toHaveStyle("backgroundColor :MediumVioletRed");
   });
 
@@ -65,12 +67,12 @@ describe("testing color button", () => {
       name: /change to midnight blue/i,
     });
 
-    fireEvent.click(colorButton);
+    userEvent.click(colorButton);
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toHaveStyle("backgroundColor : gray");
 
-    fireEvent.click(checkBox);
+    userEvent.click(checkBox);
     expect(colorButton).toHaveStyle("backgroundColor : MidnightBlue");
   });
 });
