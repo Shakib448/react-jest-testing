@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SummaryForm from "../SummaryForm";
 
@@ -35,12 +35,27 @@ describe("Summary Form testing", () => {
     expect(confirmButton).toBeDisabled();
   });
 
-  it("popover responds to hover", () => {
+  it("popover responds to hover", async () => {
     render(<SummaryForm />);
 
     const nullPopOver = screen.queryByText(
       /no ice cream will actually be delivered/i
     );
     expect(nullPopOver).not.toBeInTheDocument();
+
+    const termsAndConditions = screen.getByText(/terms and conditions/i);
+
+    userEvent.hover(termsAndConditions);
+
+    const popover = screen.getByText(
+      /No ice cream will actually be delivered/i
+    );
+    expect(popover).toBeInTheDocument();
+
+    userEvent.unhover(termsAndConditions);
+
+    await waitFor(() => {
+      screen.queryByText(/no ice cream will actually be delivered/i);
+    });
   });
 });
