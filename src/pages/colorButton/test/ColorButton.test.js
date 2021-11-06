@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
-import { replaceCamelWithSpaces } from "./App";
+import ColorButton from "../ColorButton";
+import { replaceCamelWithSpaces } from "../ColorButton";
 
 describe("testing color button", () => {
   it("button has correct initial color", () => {
-    render(<App />);
+    render(<ColorButton />);
     const colorButton = screen.getByRole("button", {
       name: /change to midnight blue/i,
     });
@@ -22,7 +22,7 @@ describe("testing color button", () => {
     expect(colorButton).toHaveTextContent("Change to Medium Violet Red");
   });
   it("initial conditions", () => {
-    render(<App />);
+    render(<ColorButton />);
     const colorButton = screen.getByRole("button", {
       name: /change to midnight blue/i,
     });
@@ -32,7 +32,7 @@ describe("testing color button", () => {
     expect(checkBox).not.toBeChecked();
   });
   it("checkbox disable button on first click and enables on second click", () => {
-    render(<App />);
+    render(<ColorButton />);
     const checkBox = screen.getByRole("checkbox", { name: /disable button/i });
     const colorButton = screen.getByRole("button", {
       name: /change to midnight blue/i,
@@ -45,7 +45,7 @@ describe("testing color button", () => {
     expect(colorButton).toBeEnabled();
   });
   it("disable button has gray background an reverts to red", () => {
-    render(<App />);
+    render(<ColorButton />);
     const checkBox = screen.getByRole("checkbox", { name: /disable button/i });
     const colorButton = screen.getByRole("button", {
       name: /change to midnight blue/i,
@@ -59,7 +59,7 @@ describe("testing color button", () => {
   });
 
   it("disable button has gray background an reverts to blue", () => {
-    render(<App />);
+    render(<ColorButton />);
     const checkBox = screen.getByRole("checkbox", { name: /disable button/i });
     const colorButton = screen.getByRole("button", {
       name: /change to midnight blue/i,
