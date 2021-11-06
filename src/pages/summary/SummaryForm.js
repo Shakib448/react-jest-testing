@@ -6,7 +6,7 @@ const SummaryForm = () => {
 
   const checkboxLabel = (
     <span>
-      I agree to <span style={{ color: "blue" }}>Terms and COnditions</span>
+      I agree to <span style={{ color: "blue" }}>Terms and Conditions</span>
     </span>
   );
   return (
@@ -16,13 +16,12 @@ const SummaryForm = () => {
           type="checkbox"
           checked={tcChecked}
           onChange={(e) => setTcChecked(e.target.checked)}
-          label={checkboxLabel}
-        ></Form.Check>
+        />
+        <Form.Check.Label>{checkboxLabel}</Form.Check.Label>
+        <Button variant="primary" type="submit" disabled={!tcChecked}>
+          Confirm Order
+        </Button>
       </Form.Group>
-      <Button variant="primary" type="submit" disabled={!tcChecked}>
-        {" "}
-        Confirm Order
-      </Button>
     </Form>
   );
 };
