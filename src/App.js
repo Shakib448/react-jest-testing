@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SummaryForm from "../src/pages/summary/SummaryForm";
+import Options from "../src/pages/entry/Options";
 
 function App() {
   return (
     <div className="App">
-      <SummaryForm />
+      <Options />
     </div>
   );
 }
