@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Options from "../src/pages/entry/Options";
+import OrderEntry from "../src/pages/entry/OrderEntry";
 
 function App() {
   return (
     <div className="App">
-      <Options />
+      <OrderEntry />
     </div>
   );
 }
